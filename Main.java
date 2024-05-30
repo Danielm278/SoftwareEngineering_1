@@ -54,7 +54,12 @@ public class Main {
 					System.out.println("<Remove Entry>");
 					System.out.print("Please select the Entry you wish to remove: ");
 					String rm_name = s.nextLine();
-					rootNode.rmEntry(rm_name);
+					if(rootNode.next != null) {
+						rootNode.rmEntry(rm_name);
+					}
+					else {
+						rootNode = null;
+					}
 					break;
 			}
 		}
