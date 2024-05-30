@@ -17,24 +17,26 @@ public class EntryNode {
 		
 	}
 	
-	public void addEntry(String newName, int newNumber){
-		if(next != null) {
-			next.addEntry(newName, newNumber);
-		}
-		else {
-			next = new EntryNode(newName, newNumber);
-			next.prev = this;
-		}
+	public EntryNode addEntry(String newName, int newNumber){
+		this.prev = new EntryNode(newName, newNumber);
+		this.prev.next = this;
+		return this.prev;
 	}
 	
-	public void printList(int entry) {
-		System.out.println((entry+1) + "."+ " Name: "+entryInfo[0] );
-		System.out.println("   Phone number: "+entryInfo[1] );
-		System.out.println("");
+	public int printList() {
+		int next_int = 1;
+		
 		if(next != null) {
-			next.printList(entry + 1);
+			next_int = next.printList();
+		}
+		else {
+			next_int = 1;
 		}
 
+		System.out.println(next_int + "."+ " Name: "+entryInfo[0] );
+		System.out.println("   Phone number: "+entryInfo[1] );
+		System.out.println("");
+		return next_int + 1;
 	}
 	
 	public void rmEntry(String name) {
