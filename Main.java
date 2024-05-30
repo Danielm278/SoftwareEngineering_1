@@ -44,11 +44,11 @@ public class Main {
 					System.out.print("Please enter Phone Number: ");
 					int number = Integer.parseInt(s.nextLine());
 					System.out.println();
-					rootNode.addEntry(new_name, number);
+					rootNode = rootNode.addEntry(new_name, number);
 					break;
 				case 1:
 					System.out.println("<Print Phone numbers>");
-					rootNode.printList(0);
+					rootNode.printList();
 					break;
 				case 2:
 					System.out.println("<Remove Entry>");
